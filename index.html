@@ -1,1 +1,46 @@
-"HELLO WORLD!"
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MOD 1 HW</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="styles/bootstrap.min.css">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <style >
+    	.userTip {
+    		color:orange;
+    	}
+    	.tip {
+    		color: green;
+    		border: 1px solid green;
+    	}
+    	.warning {
+    		color:green;
+    		border: 1px solid green;
+    	}
+    	.error {
+    		color:red;
+    		border: 1px solid red;
+    	}
+    </style>
+</head>
+<body ng-app="LunchCheck">
+	<div class="container" ng-controller="LunchCheckController">
+		<h1>What do eat for lunch?</h1>
+		<div class="form-group">
+             <input id="lunch-menu" type="text"
+             placeholder="list comma separated dishes you usually have for lunch"
+             class="form-control"
+             ng-model="items">
+             <p class="userTip">Empty items (i.e., , ,) are NOT considered as items towards to the count.
+             					So ',,1,,,,2,,,,,,,,,3,,,' will only be considered as <b>THREE</b> items!</p>
+         </div>
+         <div class="form-group">
+             <button class="btn btn-default" ng-model="check" ng-click="checkItems()">Check If Too Much</button>
+         </div>
+         <div class="form-group message {{msgType}} col-sm-1" style="padding: 5px; width: auto;" ng-model="message">
+           {{message}}
+         </div>
+	</div>
+</body>
+</html>
